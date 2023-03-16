@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 /**
  * main - Entry point
@@ -9,11 +10,8 @@
  */
 int main(void)
 {
-	char txt[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
+	char *txt = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
 
-	for (int i = 0; i < sizeof(txt); i++)
-	{
-		putchar(txt[i]);
-	}
+	fwrite(txt, sizeof(char), strlen(txt), stdout);
 	return (1);
 }

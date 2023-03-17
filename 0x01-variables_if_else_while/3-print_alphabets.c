@@ -13,12 +13,13 @@
 
 int main(void)
 {
-	char a_z[] = "abcdefghijklmnopqrstuvwxyz\n";
+	char a_z[] = "abcdefghijklmnopqrstuvwxyz";
 	size_t i = 0;
 
 	for (i = 0; i < strlen(a_z); i++)
 		putchar(a_z[i]);
 	for (i = 0; i < strlen(a_z); i++)
-                putchar(toupper(a_z[i]));
+		putchar(toupper(a_z[i]));
+	putchar('\n');
 	return (0);
 }

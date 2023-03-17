@@ -13,30 +13,18 @@
 
 int main(void)
 {
-	int Sdigit[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 	int i = 0;
-	int j = 0;
-	int k;
 
-	for (i = 0; i < 10; i++)
+	while ( i < 10)
 	{
-		for (j = 0; j < 9; j++)
+		putchar(i + '0');
+		if (i < 9)
 		{
-			int tmp = Sdigit[j];
-
-			Sdigit[j] = Sdigit[j + 1];
-			Sdigit[j + 1] = tmp;
-			for (k = 0; k < 10; k++)
-			{
-				putchar(Sdigit[k] + '0');
-				if (k < 9)
-				{
-					putchar(',');
-					putchar(' ');
-				}
-			}
-			putchar('\n');
+			putchar(',');
+			putchar(' ');
 		}
+		i++;
 	}
+	putchar('\n');
 	return (0);
 }

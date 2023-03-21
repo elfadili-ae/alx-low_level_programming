@@ -1,21 +1,20 @@
-#include "main.h"
+#include"main.h"
 
 /**
  * main - Entry point
  *
- * Description: print _putchar
+ * Description: print _putchar using putchar(char)
  *
- * Return: 0 (success)
- */
+ * Return: Always 0 (Success)
+*/
 
 int main(void)
 {
-	int i = 0;
 	char kotoba[] = "_putchar\n";
+	int i;
 
 	for (i = 0; i < strlen(kotoba); i++)
-	{
 		_putchar(kotoba[i]);
-	}
+
 	return (0);
 }

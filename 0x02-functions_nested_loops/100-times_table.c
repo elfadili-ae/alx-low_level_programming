@@ -13,7 +13,7 @@ void print_times_table(int t)
 	int n;
 	int res;
 
-	if (t > 0 && t < 15)
+	if (t >= 0 && t < 15)
 		for (m = 0; m < (t + 1); m++)
 		{
 			for (n = 0; n < (t + 1); n++)

@@ -8,7 +8,7 @@
  * Return: last digit (int)
 */
 
-int jack_bauer(void)
+void jack_bauer(void)
 {
 	int m;
 	int n;

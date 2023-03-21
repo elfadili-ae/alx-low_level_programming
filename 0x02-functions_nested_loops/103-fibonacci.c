@@ -20,7 +20,7 @@ int main(void)
 
 	for (m = 0; m < 50; m++)
 	{
-		if (fib[m] % 2 == 0)
+		if (fib[m] % 2 == 0 && fib[m] < 4000000)
 			sum = sum + fib[m];
 	}
 	printf("%ld\n", sum);

@@ -23,7 +23,7 @@ void print_to_98(int n)
 			if ((m / 10) != 0)
 				_putchar((m / 10) + 48);
 			_putchar((m % 10) + 48);
-			if (m != 98)
+			if (n != 98)
 			{
 				_putchar(',');
 				_putchar(' ');

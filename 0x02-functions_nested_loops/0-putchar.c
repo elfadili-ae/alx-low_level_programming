@@ -13,7 +13,7 @@ int main(void)
 	char kotoba[] = "_putchar\n";
 	int i;
 
-	for (i = 0; i < strlen(kotoba); i++)
+	for (i = 0; i < (int)strlen(kotoba); i++)
 		_putchar(kotoba[i]);
 
 	return (0);

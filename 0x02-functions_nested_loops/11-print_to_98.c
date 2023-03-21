@@ -20,8 +20,10 @@ void print_to_98(int n)
 				m = m * -1;
 				_putchar('-');
 			}
+			if ((m / 100) != 0)
+				_putchar((m / 100) % 10 + '0');
 			if ((m / 10) != 0)
-				_putchar((m / 10) + 48);
+				_putchar((m / 10) % 10 + '0');
 			_putchar((m % 10) + 48);
 			if (n != 98)
 			{

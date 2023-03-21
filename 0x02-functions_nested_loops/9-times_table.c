@@ -19,7 +19,7 @@ void times_table(void)
 		for (n = 0; n < 10; n++)
 		{
 			res = m * n;
-			if (n != 0 && n != 9)
+			if (n != 0)
 				if ((res / 10) == 0)
 					_putchar(' ');
 			if ((res / 10) != 0)

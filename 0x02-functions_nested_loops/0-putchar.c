@@ -10,6 +10,12 @@
 
 int main(void)
 {
-	printf("_putchar\n");
+	int i = 0;
+	char kotoba[] = "_putchar\n";
+
+	for (i = 0; i < strlen(kotoba); i++)
+	{
+		_putchar(kotoba[i]);
+	}
 	return (0);
 }

@@ -1,13 +1,12 @@
 #include"main.h"
 
 /**
- * add - print last digit
+ * add - add two integers
  *
- * Description: print last digit of a number
- * @a: integer
- * @b: integer
+ * @m: first integer
+ * @n: second integer
  *
- * Return: last digit (int)
+ * Return: m + n
 */
 
 int add(int m, int n)

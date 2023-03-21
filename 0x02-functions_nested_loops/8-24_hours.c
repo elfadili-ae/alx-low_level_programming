@@ -18,8 +18,8 @@ void jack_bauer(void)
 		for (n = 0; n < 60; n++)
 		{
 			_putchar((m / 10) + 48);
-			_ptuchar((m % 10) + 48);
-			_ptuchar(':');
+			_putchar((m % 10) + 48);
+			_putchar(':');
 			_putchar((n / 10) + 48);
 			_putchar((n % 10) + 48);
 			_puchar('\n');

@@ -7,25 +7,28 @@
  *
 */
 
-
 int main(void)
 {
 	int m;
-	long int x = 1;
-	long int y = 2;
-	long int z;
+	unsigned long x = 1;
+	unsigned long y = 2;
+	unsigned long z;
+	unsigned long  xc = 0, yc = 0, zc = 0;
+	unsigned long max = 100000000;
 
-	printf("1, 2, ");
-	for (m = 3; m < 99; m++)
+	for (m = 1; m < 99; m++)
 	{
-		z = x + y;
-		printf("%lu", z);
+		if (xc > 0)
+			printf("%lu", xc);
+		printf("%lu", x);
+		z = (x + y) % max;
+		zc = xc + yc + (x + y) / max;
 		x = y;
+		xc = yc;
 		y = z;
+		yc = zc;
 		if (m != 98)
-		{
 			printf(", ");
-		}
 	}
 	printf("\n");
 	return (0);

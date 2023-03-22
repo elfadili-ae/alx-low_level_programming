@@ -5,4 +5,6 @@
 #include <stdlib.h>
 #include <time.h>
 
+void positive_or_negative(int i);
+
 #endif

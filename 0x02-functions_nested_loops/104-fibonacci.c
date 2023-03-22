@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /**
- *lencount: count the number's length
+ *lencount - count the number's length
+ *
  *@d: operand to count its length
  *
  *Return: return the length

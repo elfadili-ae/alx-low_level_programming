@@ -16,6 +16,8 @@ void print_diagonal(int c)
 			_putchar(i / 10 + ' ');
 		}
 		_putchar('\\');
-		_putchar('\n');
+		if(j != (c - 1))
+			_putchar('\n');
 	}
+		_putchar('\n');
 }

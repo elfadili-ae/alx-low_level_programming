@@ -13,9 +13,9 @@ int main(void)
 
 	for (i = 2; num > 1; i++)
 	{
-		while (num%i == 0)
+		while (num % i == 0)
 		{
-			num = num/i;
+			num = num / i;
 			counter = i;
 		}
 	}

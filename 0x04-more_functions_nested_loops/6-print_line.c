@@ -10,6 +10,6 @@ void print_line(int c)
 	int i;
 
 	for (i = 0; i < c; i++)
-		_putchar('-');
+		_putchar('_');
 	_putchar('\n');
 }

@@ -1,21 +1,35 @@
 #include "main.h"
 
 /**
- * more_numbers - print from 0 to 14 x10
+ * main - print fizz buzz
  *
+ *Return: 0 (success)
  */
-void more_numbers(void)
+int main(void)
 {
-	int i;
 	int j;
+	int i;
 
-	for (j = 0; j <= 100; j++)
+	for (j = 1; j <= 100; j++)
 	{
+		if (j % 3 == 0 & j % 5 == 0)
 		{
-			if (i > 9)
-				_putchar(i / 10 + '0');
-			_putchar(i % 10 + '0');
+			printf("FizzBuzz");
 		}
-		_putchar('\n');
+		else if (j % 3 == 0)
+		{
+			printf("Fizz");
+		}
+		else if (j% 5 == 0)
+		{
+			printf("Buzz");
+		}
+		else
+		{
+			printf("%d", j);
+		}
+		if (j != 100)
+			printf(" ");
 	}
+	return (0);
 }

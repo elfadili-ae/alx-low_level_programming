@@ -2,14 +2,15 @@
 
 /**
  * _isdigit - check if digit
- * @c: numer to check
+ * @c: number to check
  *
  * Return: 1 (digit) 0 (otherwise)
  */
 int _isdigit(int c)
 {
+	char cc = c;
 
-	if (c >= 0 && c <= 9)
+	if (cc >= 48 && cc <= 58)
 		return (1);
 	else
 		return (0);

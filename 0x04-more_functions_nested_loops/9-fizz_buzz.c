@@ -8,11 +8,10 @@
 int main(void)
 {
 	int j;
-	int i;
 
 	for (j = 1; j <= 100; j++)
 	{
-		if (j % 3 == 0 & j % 5 == 0)
+		if (j % 3 == 0 && j % 5 == 0)
 		{
 			printf("FizzBuzz");
 		}
@@ -20,7 +19,7 @@ int main(void)
 		{
 			printf("Fizz");
 		}
-		else if (j% 5 == 0)
+		else if (j % 5 == 0)
 		{
 			printf("Buzz");
 		}
@@ -31,5 +30,6 @@ int main(void)
 		if (j != 100)
 			printf(" ");
 	}
+	printf("\n");
 	return (0);
 }

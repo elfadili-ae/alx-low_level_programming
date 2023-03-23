@@ -10,7 +10,7 @@ int _isdigit(int c)
 {
 	char cc = c;
 
-	if (cc >= 48 && cc <= 58)
+	if (cc >= 48 && cc <= 57)
 		return (1);
 	else
 		return (0);

@@ -7,7 +7,7 @@
  */
 void print_number(int num)
 {
-	long int length = 0;
+	unsigned int length = 0;
 	int isNegative = 0;
 	int j;
 	int i;

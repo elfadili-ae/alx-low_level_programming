@@ -12,14 +12,14 @@ int _strcmp(char *s1, char *s2)
 	int i = 0;
 	int len = 0;
 
-	while (s1[len] != '\0' || s2[len] != '\n')
+	while (s1[len] != '\0' || s2[len] != '\0')
 		len++;
 	while (i < len)
 	{
 		if (s1[i] > s2[i])
-			return (1);
+			return (15);
 		else if (s1[i] < s2[i])
-			return (-1);
+			return (-15);
 		i++;
 	}
 	return (0);

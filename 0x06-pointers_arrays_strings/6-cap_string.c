@@ -14,14 +14,14 @@ char *cap_string(char *str)
 
 	while (str[i] != '\0')
 	{
-		for (j = 0; j < 13; j++)
-			if (str[i] == sep[j])
-			{
-				if (j == 2)
-					str[i] = ' ';
-				if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
-					str[i + 1] -= 32;
-			}
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			if (str[i - 1] == '\t')
+				str[i - 1] = ' ';
+			for (j = 0; j < 13; j++)
+				if (str[i - 1] == sep[j])
+					str[i] -= 32;
+		}
 		i++;
 	}
 	return (str);

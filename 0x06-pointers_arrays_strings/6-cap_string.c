@@ -19,10 +19,10 @@ char *cap_string(char *str)
 			if (i == 0)
 				str[i] -= 32;
 			for (j = 0; j < 13; j++)
-				{
-					if (str[i - 1] == sep[j])
-						str[i] -= 32;
-				}
+			{
+				if (str[i - 1] == sep[j])
+					str[i] -= 32;
+			}
 		}
 		i++;
 	}

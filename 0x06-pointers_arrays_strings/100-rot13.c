@@ -10,7 +10,7 @@ char *rot13(char *txt)
 {
 	int i = 0;
 
-	while (txt[i])
+	while (txt[i] != '\0')
 	{
 		while ((txt[i] >= 'A' && txt[i] <= 'Z') || (txt[i] >= 'a' && txt[i] <= 'z'))
 		{

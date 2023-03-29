@@ -1,0 +1,19 @@
+#include "main.h"
+
+/**
+ * cap_string - Capitalize words in a string
+ * @str: string to fix
+ * Return: pointer to string @str
+ */
+
+char *cap_string(char *str)
+{
+	int i = 0;
+	char separators[] = " \t,.;!?\"(){}";
+	while (str[i] != '\0')
+	{
+		if (str[i] == 'a' && str[i] <= 'z')
+		i++;
+	}
+	return (str);
+}

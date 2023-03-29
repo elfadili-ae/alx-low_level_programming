@@ -2,25 +2,25 @@
 
 /**
  * rot13 - encode a string by using rot13
- * @str: string to encode
- * Return: pointer to string @str
+ * @txt: string to encode
+ * Return: pointer to string @txt
  */
 
-char *rot13(char *str)
+char *rot13(char *txt)
 {
 	int i = 0;
 
-	while (str[i])
+	while (txt[i])
 	{
-		while ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+		while ((txt[i] >= 'A' && txt[i] <= 'Z') || (txt[i] >= 'a' && txt[i] <= 'z'))
 		{
-			if ((str[i] >= 'a' && str[i] <= 'm') || (str[i] >= 'A' && str[i] <= 'M'))
-				str[i] += 13;
+			if ((txt[i] >= 'A' && txt[i] <= 'M') || (txt[i] >= 'a' && txt[i] <= 'm'))
+				txt[i] += 13;
 			else
-				str[i] -= 13;
+				txt[i] -= 13;
 			i++;
 		}
 		i++;
 	}
-	return (str);
+	return (txt);
 }

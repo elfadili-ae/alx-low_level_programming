@@ -35,7 +35,7 @@ void print_buffer(char *b, int size)
 		{
 			if (b[i + j] >= 31 && b[i + j] <= 126)
 				putchar(b[i + j]);
-			else
+			else if ((i + j) < size)
 				putchar('.');
 		}
 		putchar('\n');

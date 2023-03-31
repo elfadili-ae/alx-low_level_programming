@@ -38,6 +38,9 @@ void print_buffer(char *b, int size)
 			else if ((i + j) < size)
 				putchar('.');
 		}
+
+		if (i >= size)
+			break;
 		putchar('\n');
 	}
 }

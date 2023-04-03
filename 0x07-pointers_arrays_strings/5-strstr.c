@@ -21,7 +21,7 @@ char *_strstr(char *s, char *a)
 			checker++;
 			i++;
 		}
-		if (checker > 0)
+		if (checker > 0 && s[i] != '\0')
 		{
 			if (checker < len)
 				checker++;
@@ -31,5 +31,5 @@ char *_strstr(char *s, char *a)
 				return (&s[i - checker + 1]);
 		}
 	}
-	return (0);
+	return (NULL);
 }

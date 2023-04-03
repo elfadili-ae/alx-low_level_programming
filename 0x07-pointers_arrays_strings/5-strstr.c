@@ -23,7 +23,7 @@ char *_strstr(char *s, char *a)
 		}
 		if (checker > 0 && s[i] != '\0')
 		{
-			if (checker < len)
+			if (s[i] == a[checker])
 				checker++;
 			else
 				checker = 0;

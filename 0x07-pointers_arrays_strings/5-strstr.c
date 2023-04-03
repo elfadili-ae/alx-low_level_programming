@@ -12,7 +12,8 @@ char *_strstr(char *s, char *a)
 	int i, len, checker = 0;
 
 	len = (int) strlen(a);
-
+	if (*a == 0)
+		return (s);
 	for (i = 0; i < (int) strlen(s); i++)
 	{
 		if (s[i] == a[0])

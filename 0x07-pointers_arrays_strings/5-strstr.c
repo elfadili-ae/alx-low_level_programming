@@ -9,29 +9,25 @@
 
 char *_strstr(char *s, char *a)
 {
-	int i, j, len, checker = 0;
+	int i, len, checker = 0;
 
 	len = (int) strlen(a);
+
 	for (i = 0; i < (int) strlen(s); i++)
 	{
-		for (j = 0; j < (int) strlen(a); j++)
+		if (s[i] == a[0])
 		{
-			/* return the beginnig of the first match*/
-			if (checker == (len - 1))
-				return (&s[i]);
-
+			checker++;
+			i++;
+		}
+		if (checker > 0)
+		{
 			if (checker < len)
-			{
-				if (s[i] == a[0] || checker > 0)
-				{
-					if (s[i] == a[0])
-						checker++;
-				}
-				else
-				{
-					checker = 0;
-				}
-			}
+				checker++;
+			else
+				checker = 0;
+			if (checker == len)
+				return (&s[i - checker + 1]);
 		}
 	}
 	return (0);

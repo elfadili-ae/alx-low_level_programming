@@ -26,8 +26,8 @@ int _charcmp(char *s, int i, int j)
 */
 int _strlen(char *s, int j)
 {
-	if(s[j] != '\0')
-		return _strlen(s, ++j);
+	if (s[j] != '\0')
+		return (_strlen(s, ++j));
 	return (j);
 }
 

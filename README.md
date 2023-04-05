@@ -1,4 +1,3 @@
-README.md
 <b>Learning C Programming Language at ALX AFRICA</b>
 
 This repository projects for learning the C programming language.

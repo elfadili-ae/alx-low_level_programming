@@ -26,10 +26,7 @@ int _charcmp(char *s, int i, int j)
 */
 int is_palindrome(char *s)
 {
-	int len = 0;
-
-	while (s[len] != '\0')
-		len++;
+	int len = (int) strlen(s);
 
 	if (len == 0)
 		return (1);

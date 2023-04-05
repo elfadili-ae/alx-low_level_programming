@@ -2,7 +2,9 @@
 
 /**
 * _charcmp - compare string start/end characters
-* @x: number
+* @s: string
+* @i: start index
+* @j: end index
 * Return: 1 (same) 0 (different)
 */
 
@@ -18,13 +20,14 @@ int _charcmp(char *s, int i, int j)
 }
 
 /**
-* _pow_recursion - calculate the power of a number
-* @x: number
+* is_palindrome - check if a string is palindrome or not
+* @s: number
 * Return: 1 (palindrome) 0 (not palindrome)
 */
 int is_palindrome(char *s)
 {
 	int len = 0;
+
 	while (s[len] != '\0')
 		len++;
 

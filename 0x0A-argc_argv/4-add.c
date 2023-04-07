@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		{
 			errno = 0;
 			num = strtol(argv[i], NULL, 10);
-			if (errno == 0)
+			if (errno != 0)
 			{
 				printf("Error\n");
 				return (1);

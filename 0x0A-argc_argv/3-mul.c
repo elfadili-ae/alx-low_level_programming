@@ -1,10 +1,10 @@
 #include "main.h"
-
+#include <stdlib.h>
 /**
  * main - print multi of two arguments
  * @argc: args count
  * @argv: args array
- * Return: 0 (sucess)
+ * Return: 0 (sucess) 1 (error)
  */
 int main(int argc, char *argv[])
 {

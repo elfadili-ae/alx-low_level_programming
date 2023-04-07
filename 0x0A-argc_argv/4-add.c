@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	char *endp = NULL;
 	char *np;
 
-	if (argc > 2)
+	if (argc >= 2)
 		for (i = 1; i < argc; i++)
 		{
 			np = argv[i];

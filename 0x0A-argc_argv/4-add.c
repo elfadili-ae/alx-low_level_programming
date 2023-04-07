@@ -11,22 +11,23 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int i, j, sum = 0;
 	long num;
 	char *endp = NULL;
-	char *np;
 
 	if (argc >= 2)
 		for (i = 1; i < argc; i++)
 		{
-			np = argv[i];
-			errno = 0;
-			num = strtol(argv[i], &endp, 10);
-			if (errno != 0 || endp == argv[i] || *np == '\0')
+			for (j = 0; argv[i][j]; j++)
 			{
-				printf("Error\n");
-				return (1);
+				if (argv[i][j] < '0' || argv[i][j] > '9')
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
+
+			num = strtol(argv[i], &endp, 10);
 			sum += (int) num;
 		}
 	printf("%d\n", sum);

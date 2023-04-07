@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		{
 			errno = 0;
 			num = strtol(argv[i], &endptr, 10);
-			if (errno != 0 || endptr == argv[i])
+			if (errno != 0 || endptr == argv[i] || argc[i] == '\0')
 			{
 				printf("Error\n");
 				return (1);

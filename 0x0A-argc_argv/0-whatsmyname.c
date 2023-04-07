@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - print the name of the program
@@ -6,6 +6,10 @@
  */
 int main(int argc, char *argv[])
 {
-	printf("%s\n", argv[0]);
+	int i = 0;
+
+	while (argv[0][i])
+		_putchar(argv[0][i++]);
+	_putchar('\n');
 	return (0);
 }

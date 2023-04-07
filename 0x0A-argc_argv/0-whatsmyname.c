@@ -2,14 +2,13 @@
 
 /**
  * main - print the name of the program
+ * @argc: args count
+ * @argv: args array
  * Return: 0 (sucess)
  */
 int main(int argc, char *argv[])
 {
-	int i = 0;
-
-	while (argv[0][i])
-		_putchar(argv[0][i++]);
-	_putchar('\n');
+	printf("%s\n", argv[0]);
+	(void)argc;
 	return (0);
 }

@@ -13,13 +13,14 @@ int main(int argc, char *argv[])
 {
 	int i, sum = 0;
 	long num;
+	char *endptr = NULL;
 
 	if (argc > 2)
 		for (i = 1; i < argc; i++)
 		{
 			errno = 0;
-			num = strtol(argv[i], NULL, 10);
-			if (errno != 0)
+			num = strtol(argv[i], &endptr, 10);
+			if (errno != 0 || endptr == argv[i])
 			{
 				printf("Error\n");
 				return (1);

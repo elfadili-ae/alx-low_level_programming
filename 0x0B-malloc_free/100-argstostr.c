@@ -11,7 +11,7 @@
 char *argstostr(int ac, char **av)
 {
 	char *txt;
-	int i, len = 0;
+	int i, len = 1;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
@@ -26,7 +26,7 @@ char *argstostr(int ac, char **av)
 	for (i = 0, len = 0; i < ac; i++)
 	{
 		strcat(txt, av[i]);
-		strcat(txt, "\n");
+		strcat(txt, "\n\0");
 	}
 	return (txt);
 }

@@ -54,6 +54,8 @@ char **strtow(char *str)
 		return (NULL);
 
 	wc = wcount(str);
+	if (wc == 0)
+		return (NULL);
 
 	arr = (char **) malloc(sizeof(char *) * (wc + 1));
 	if (arr == NULL)

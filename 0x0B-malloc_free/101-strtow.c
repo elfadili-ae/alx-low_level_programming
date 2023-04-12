@@ -10,6 +10,8 @@ int wcount(char *str)
 {
 	int i, wc = 0, d = 0;
 
+	if (str[0] != ' ')
+		d = 1;
 	for (i = 0; i < (int) strlen(str); i++)
 	{
 		if (str[i] == ' ')

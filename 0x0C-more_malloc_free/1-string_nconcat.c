@@ -6,6 +6,7 @@
  * string_nconcat - concatenate two strings
  * @s1: string
  * @s2: string
+ * @n: bytes to print
  * Return: pointer to concatenated | NULL (failed)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -17,10 +18,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	len = n >= strlen(s2)? strlen(s2) : n;
+	len = n >= strlen(s2) ? strlen(s2) : n;
 	p = malloc(strlen(s1) + len + 1);
 	if (p == NULL)
-		return NULL;
+		return (NULL);
 
 	while (s1[i])
 	{

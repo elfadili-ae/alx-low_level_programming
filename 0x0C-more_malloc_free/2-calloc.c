@@ -3,13 +3,13 @@
 
 /**
  * _calloc - allocate memory for an array
- * @nmemb: rows
- * @size: columns
+ * @nmemb: number of elements
+ * @size: size
  * Return: pointer to array | NULL (failed)
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *p;
+	char *p;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);

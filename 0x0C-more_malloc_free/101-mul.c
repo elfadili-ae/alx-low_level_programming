@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /**
- * _print - print string
+ * _print - print string in reverse
  * @str: string
  */
 void _print(char *str)
@@ -18,15 +18,15 @@ void _print(char *str)
 	}
 }
 /**
- * _isdigit - check if the args are digit
- * @av: arguments
+ * alldigit - check if the args are digit
+ * @a: arguments
  */
 void alldigit(char *a)
 {
 	int j;
 
 	for (j = 0; j < (int) strlen(a); j++)
-		if ( a[j] < '0' || a[j] > '9')
+		if (a[j] < '0' || a[j] > '9')
 		{
 			_print("Error\n");
 			exit(98);
@@ -65,11 +65,11 @@ int main(int argc, char *argv[])
 	len1 = strlen(argv[1]);
 	len2 = strlen(argv[2]);
 
-	result = malloc( sizeof(int) * (len1 + len2 + 1));
+	result = malloc(sizeof(int) * (len1 + len2 + 1));
 	if (result == NULL)
 	{
 		_print("Error\n");
-		return(98);
+		return (98);
 	}
 	for (i = 0; i < len1; i++)
 	{

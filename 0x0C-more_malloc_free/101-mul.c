@@ -39,17 +39,14 @@ void alldigit(char *a)
  */
 void print_arr(int *arr, int size)
 {
-	int i, stop = 0;
+	int i, start = 0;
 
-	for (i = size - 2; i >= 0; i--)
+	for (i = 0; i < size; i++)
 	{
-		if(arr[i] == 0 && !stop)
-			continue;
-		else
-		{
-			stop = 1;
+		if (arr[i])
+			start = 1;
+		if (start)
 			_putchar(arr[i] + '0');
-		}
 	}
 	_print("\n");
 }
@@ -73,25 +70,25 @@ int main(int argc, char *argv[])
 	len1 = strlen(argv[1]);
 	len2 = strlen(argv[2]);
 
-	result = malloc(sizeof(int) * (len1 + len2));
+	result = malloc(sizeof(int) * (len1 + len2 + 1));
 	if (result == NULL)
 	{
 		_print("Error\n");
 		return (98);
 	}
-	for (i = 0; i < len1; i++)
+	for (i = len1 - 1; i >= 0; i--)
 	{
-		d1 = argv[1][len1 - 1 - i] - '0';
-		for (j = 0; j < len2; j++)
+		d1 = argv[1][i] - '0';
+		for (j = len2 - 1; j >= 0; j--)
 		{
-			d2 = argv[2][len2 - 1 - j] - '0';
-			carry += result[i + j] + d1 * d2;
-			result[i + j] = carry % 10;
+			d2 = argv[2][j] - '0';
+			carry += result[i + j + 1] + d1 * d2;
+			result[i + j + 1] = carry % 10;
 			carry /= 10;
 		}
 		if (carry != 0)
 		{
-			result[i + j] += carry;
+			result[i + j + 1] += carry;
 			carry = 0;
 		}
 	}

@@ -36,7 +36,7 @@ void alldigit(char *a)
 		}
 }
 /**
- * print_arr - print an array
+ * printArray - print an array
  * @arr: array to print
  * @size: array size
  */

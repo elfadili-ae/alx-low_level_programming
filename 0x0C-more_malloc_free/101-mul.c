@@ -48,6 +48,8 @@ void print_arr(int *arr, int size)
 		if (start)
 			_putchar(arr[i] + '0');
 	}
+	if (!start)
+		_putchar('0');
 	_print("\n");
 }
 /**

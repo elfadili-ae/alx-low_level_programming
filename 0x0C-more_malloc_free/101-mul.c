@@ -39,10 +39,18 @@ void alldigit(char *a)
  */
 void print_arr(int *arr, int size)
 {
-	int i;
+	int i, stop = 0;
 
 	for (i = size - 2; i >= 0; i--)
-		_putchar(arr[i] + '0');
+	{
+		if(arr[i] == 0 && !stop)
+			continue;
+		else
+		{
+			stop = 1;
+			_putchar(arr[i] + '0');
+		}
+	}
 	_print("\n");
 }
 /**
@@ -65,7 +73,7 @@ int main(int argc, char *argv[])
 	len1 = strlen(argv[1]);
 	len2 = strlen(argv[2]);
 
-	result = malloc(sizeof(int) * (len1 + len2 + 1));
+	result = malloc(sizeof(int) * (len1 + len2));
 	if (result == NULL)
 	{
 		_print("Error\n");

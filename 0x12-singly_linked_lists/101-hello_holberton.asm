@@ -1,17 +1,17 @@
+extern printf
+
 section .data
-	alx:	db "Hello, Holberton",10
-	alxLen:	equ $-alx
+	alx:	db "Hello, Holberton", 10, 0
 
 section .text
 	global main
 main:
 	; Write the string to stdout
-	mov eax,4
-	mov ebx,1
-	mov ecx,alx
-	mov edx,alxLen
-	int 0x80
+	mov rdi, alx
+	xor eax, eax
+	call printf
+
 
 	; Exit program
-	mov eax, 1
-	int 0x80
+	mov eax, 0
+	ret

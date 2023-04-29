@@ -34,12 +34,14 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			tmp = tmp->next;
 		}
 		if (!brCheck && (i + 1) < idx)
+		{
+			free(newNode);
 			return (0);
+		}
 		if (tmp != NULL)
 			newNode->next = tmp->next;
 		else
 			newNode->next = NULL;
-		/*link (idx - 1) to idx */
 		tmp->next = newNode;
 	}
 	else

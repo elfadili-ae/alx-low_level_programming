@@ -3,7 +3,7 @@
 /**
  * delete_nodeint_at_index - delete element at index
  * @head: listint_t's head
- * @n: int value
+ * @index: index to delete
  * Return: adress of the new node | NULL (failed)
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
@@ -18,7 +18,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	{
 		while (curr->next != NULL)
 		{
-			if (i == (index -1))
+			if (i == (index - 1))
 			{
 				break;
 			}

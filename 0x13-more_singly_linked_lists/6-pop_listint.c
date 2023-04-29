@@ -1,10 +1,9 @@
 #include "lists.h"
 #include <stdlib.h>
 /**
- * pop_listint - pop an element of a listint_t
+ * pop_listint - pop the head of a listint_t
  * @head: listint_t's head
- * @n: int value
- * Return: adress of the new node | NULL (failed)
+ * Return: value of poped element
  */
 int pop_listint(listint_t **head)
 {

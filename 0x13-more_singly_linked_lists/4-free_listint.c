@@ -1,7 +1,7 @@
 #include "lists.h"
 #include <stdlib.h>
 /**
- * free_nodeint - free a listint_t
+ * free_listint - free a listint_t
  * @head: listint_t's head
  * Return: adress of the new node | NULL (failed)
  */

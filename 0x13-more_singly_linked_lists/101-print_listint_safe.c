@@ -10,7 +10,7 @@ size_t uniqueLen(const listint_t *head);
  */
 size_t print_listint_safe(const listint_t *h)
 {
-	int i = 0, count;
+	size_t i = 0, count;
 
 	count = uniqueLen(h);
 	if (count != 0)

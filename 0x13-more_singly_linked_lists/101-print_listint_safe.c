@@ -1,9 +1,12 @@
 #include "lists.h"
+#include <stdlib.h>
 #include <inttypes.h>
 
 /**
  * print_listint_safe - print the elements of listin_t safe mode
+ *
  * @h: listint_t
+ *
  * Return: number of nodes
  */
 size_t print_listint_safe(const listint_t *h)

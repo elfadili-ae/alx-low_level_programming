@@ -33,7 +33,6 @@ size_t print_listint_safe(const listint_t *h)
 		printf("[%0#lx] %d\n", (uintptr_t)h, h->n);
 		bak = re_listint(bak, h, nodes);
 		h = h->next;
-
 	}
 	free(bak);
 	return (nodes);
@@ -43,22 +42,21 @@ size_t print_listint_safe(const listint_t *h)
  * re_listint - add element and re-allocate memory for listint_t
  * @bak: listint_t's head
  * @o: listint_t origin
- * @size: list size
+ * @s: list size
  * Return: adress to the new list | NULL (failed)
  */
-const listint_t **re_listint(const listint_t **bak, const listint_t *o, int len)
+const listint_t **re_listint(const listint_t **bak, const listint_t *o, int s)
 {
 	const listint_t **newLinked;
 	int i = 0;
 
-	newLinked = malloc(sizeof(listint_t) * len);
+	newLinked = malloc(sizeof(listint_t) * s);
 	if (newLinked == NULL)
 	{
 		free(bak);
 		exit(98);
 	}
-
-	while (i < (len - 1))
+	while (i < (s - 1))
 	{
 		newLinked[i] = bak[i];
 		i++;

@@ -24,6 +24,7 @@ size_t free_listint_safe(listint_t **h)
 			i++;
 		}
 		free(*h);
+		(*h) = NULL;
 	}
 	if (count == 0)
 	{
@@ -34,7 +35,7 @@ size_t free_listint_safe(listint_t **h)
 			free(tmp);
 		}
 	}
-	*h = NULL;
+	h = NULL;
 	return (count);
 }
 

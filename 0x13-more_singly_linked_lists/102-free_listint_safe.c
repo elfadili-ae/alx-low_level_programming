@@ -4,7 +4,7 @@
 size_t floydLen(listint_t *head);
 
 /**
- * print_listint_safe - print the elements of listin_t safe mode
+ * free_listint_safe - free a listin_t in a safe mode
  * @h: listint_t
  * Return: number of nodes
  */

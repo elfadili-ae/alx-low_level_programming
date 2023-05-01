@@ -16,14 +16,14 @@ size_t free_listint_safe(listint_t **h)
 	count = floydLen(*h);
 	if (count != 0)
 	{
-		while (i < (count - 1))
+		while (i < count)
 		{
 			tmp = (*h);
 			(*h) = (*h)->next;
 			free(tmp);
 			i++;
 		}
-		free(*h);
+		/*free(*h);*/
 		(*h) = NULL;
 	}
 	if (count == 0)
@@ -33,6 +33,7 @@ size_t free_listint_safe(listint_t **h)
 			tmp = (*h);
 			(*h) = (*h)->next;
 			free(tmp);
+			count++;
 		}
 	}
 	h = NULL;

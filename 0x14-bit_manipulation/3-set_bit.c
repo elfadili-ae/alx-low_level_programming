@@ -5,7 +5,7 @@
 /**
  * set_bit - set bit at index
  * @n: number to convert
- * @i: index of the bit
+ * @index: index of the bit
  *Return: bit at index or -1 (otherwise)
  */
 int set_bit(unsigned long int *n, unsigned int index)

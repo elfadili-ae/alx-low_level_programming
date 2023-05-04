@@ -13,7 +13,7 @@ int get_bit(unsigned long int n, unsigned int i)
 	int digit;
 
 	digit = digitCount(n);
-	if ((unsigned int) digit < i)
+	if ((unsigned int) digit < i || i > sizeof(unsigned int) * 8)
 	{
 		return (-1);
 	}

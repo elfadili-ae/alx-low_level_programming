@@ -10,32 +10,11 @@
  */
 int get_bit(unsigned long int n, unsigned int i)
 {
-	int digit;
 
-	digit = digitCount(n);
-	if ((unsigned int) digit < i || i > sizeof(unsigned int) * 8)
+	if (i > sizeof(unsigned int) * 8)
 	{
 		return (-1);
 	}
-	else
-	{
-		return ((n >> i) & 1);
-	}
-}
 
-/**
- * digitCount - count the number of digits
- * @n: number
- * Return: number of digits
- */
-int digitCount(unsigned long int n)
-{
-	int count = 0;
-
-	while (n > 0)
-	{
-		n >>= 1;
-		count++;
-	}
-	return (count);
+	return ((n >> i) & 1);
 }

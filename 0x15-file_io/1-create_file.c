@@ -15,7 +15,7 @@ int create_file(const char *filename, char *_text)
 
 	fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY, S_IRUSR | S_IWUSR);
 	if (fd == -1)
-		return (0);
+		return (-1);
 
 	if (_text != NULL)
 	{
@@ -27,5 +27,5 @@ int create_file(const char *filename, char *_text)
 	}
 
 	close(fd);
-	return (count);
+	return (1);
 }

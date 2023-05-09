@@ -79,7 +79,7 @@ void ELF_magic(unsigned char *elf_ident)
 	printf("  Magic:   ");
 	for (i = 0; i < 16; i++)
 	{
-		printf("%02x ", elf_ident[i]);
+		printf("%02x", elf_ident[i]);
 		if (i == 15)
 			printf("\n");
 		else
@@ -168,7 +168,6 @@ void ELF_osabi(unsigned char *elf_ident)
 /**
  * ELF_abiVersion - display the ELF file type
  * @e_i: the ELF magic number
- * @e_type: the ELF type
  */
 void ELF_abiVersion(unsigned char *e_i)
 {
@@ -178,7 +177,7 @@ void ELF_abiVersion(unsigned char *e_i)
 /**
  * ELF_type - display the ELF file type
  * @elf_ident: the ELF magic number
- * @e_type: the ELF type
+ * @elf_type: the ELF type
  */
 void ELF_type(unsigned char *elf_ident, unsigned int elf_type)
 {

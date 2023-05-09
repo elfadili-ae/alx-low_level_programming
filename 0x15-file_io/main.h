@@ -17,6 +17,10 @@ void ELF_magic(unsigned char *e_ident);
 void ELF_class(unsigned char *e_ident);
 void ELF_data(unsigned char *e_ident);
 void ELF_version(unsigned char *e_ident);
+void ELF_osabi(unsigned char *e_ident);
+void ELF_abiVersion(unsigned char *e_ident);
+void ELF_type(unsigned char *e_ident, unsigned int e_type);
+void ELF_entry(unsigned char *e_ident, unsigned long int e_entry);
 
 void errMessage(int errCode, char *str, int val);
 int _strlen(char *s, int j);

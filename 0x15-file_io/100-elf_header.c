@@ -43,6 +43,10 @@ int main(int argc, char *av[])
 	ELF_class(ELF->e_ident);
 	ELF_data(ELF->e_ident);
 	ELF_version(ELF->e_ident);
+	ELF_osabi(ELF->e_ident);
+	ELF_abiVersion(ELF->e_ident);
+	ELF_type(ELF->e_ident, ELF->e_type);
+	ELF_entry(ELF->e_ident, ELF->e_entry);
 
 	free(ELF);
 	(void)argc;
@@ -50,15 +54,15 @@ int main(int argc, char *av[])
 }
 /**
  * ELF_check - checks if the file is an ELF file
- * @e_ident: the ELF magic number
+ * @elf_ident: the ELF magic number
  * @str: filename
  */
-void ELF_check(unsigned char *e_ident, char *str)
+void ELF_check(unsigned char *elf_ident, char *str)
 {
 	const char elf_magic[] = {0x7f, 'E', 'L', 'F'};
 
-	if (e_ident[0] != elf_magic[0] || e_ident[1] != elf_magic[1] ||
-	    e_ident[2] != elf_magic[2] || e_ident[3] != elf_magic[3])
+	if (elf_ident[0] != elf_magic[0] || elf_ident[1] != elf_magic[1] ||
+	    elf_ident[2] != elf_magic[2] || elf_ident[3] != elf_magic[3])
 	{
 		dprintf(2, "elfread: Error: '%s': Not an ELF file\n", str);
 		exit(98);
@@ -66,17 +70,16 @@ void ELF_check(unsigned char *e_ident, char *str)
 }
 /**
  * ELF_magic - display the magic number
- * @e_ident: the ELF magic number
- * @str: filename
+ * @elf_ident: the ELF magic number
  */
-void ELF_magic(unsigned char *e_ident)
+void ELF_magic(unsigned char *elf_ident)
 {
 	int i;
 
 	printf("  Magic:   ");
 	for (i = 0; i < 16; i++)
 	{
-		printf("%02x ", e_ident[i]);
+		printf("%02x ", elf_ident[i]);
 		if (i == 15)
 			printf("\n");
 		else
@@ -85,48 +88,141 @@ void ELF_magic(unsigned char *e_ident)
 }
 /**
  * ELF_class - display the ELF file class
- * @e_ident: the ELF magic number
+ * @elf_ident: the ELF magic number
  */
-void ELF_class(unsigned char *e_ident)
+void ELF_class(unsigned char *elf_ident)
 {
-        printf("  Class:                             ");
-	if (e_ident[EI_CLASS] == ELFCLASSNONE)
+	printf("  Class:                             ");
+	if (elf_ident[EI_CLASS] == ELFCLASSNONE)
 		printf("none\n");
-	else if (e_ident[EI_CLASS] == ELFCLASS32)
+	else if (elf_ident[EI_CLASS] == ELFCLASS32)
 		printf("ELF32\n");
-	else if (e_ident[EI_CLASS] == ELFCLASS64)
+	else if (elf_ident[EI_CLASS] == ELFCLASS64)
 		printf("ELF64\n");
 	else
-		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+		printf("<unknown: %x>\n", elf_ident[EI_CLASS]);
 }
 /**
  * ELF_data - display the ELF file data
- * @e_ident: the ELF magic number
+ * @elf_ident: the ELF magic number
  */
-void ELF_data(unsigned char *e_ident)
+void ELF_data(unsigned char *elf_ident)
 {
-        printf("  Data:                              ");
+	printf("  Data:                              ");
 
-	if (e_ident[EI_DATA] == ELFDATA2LSB)
+	if (elf_ident[EI_DATA] == ELFDATA2LSB)
 		printf("2's complement, little endian\n");
-	else  if (e_ident[EI_DATA] == ELFDATA2MSB)
+	else  if (elf_ident[EI_DATA] == ELFDATA2MSB)
 		printf("2's complement, big endian\n");
-	else if (e_ident[EI_DATA] == ELFDATANONE)
+	else if (elf_ident[EI_DATA] == ELFDATANONE)
 		printf("none\n");
 	else
-		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+		printf("<unknown: %x>\n", elf_ident[EI_CLASS]);
 }
 /**
  * ELF_version - display the ELF file version
- * @e_ident: the ELF magic number
+ * @elf_ident: the ELF magic number
  */
-void ELF_version(unsigned char *e_ident)
+void ELF_version(unsigned char *elf_ident)
 {
-        printf("  Version:                           ");
-	printf("%d", e_ident[EI_VERSION]);
+	printf("  Version:                           ");
+	printf("%d", elf_ident[EI_VERSION]);
 
-	if (e_ident[EI_VERSION] == EV_CURRENT)
+	if (elf_ident[EI_VERSION] == EV_CURRENT)
 		printf(" (current)");
 
 	printf("\n");
+}
+/**
+ * ELF_osabi - display the ELF file OS/ABI
+ * @elf_ident: the ELF magic number
+ */
+void ELF_osabi(unsigned char *elf_ident)
+{
+	printf("  OS/ABI:                            ");
+
+	if (elf_ident[EI_OSABI] == ELFOSABI_NONE)
+		printf("UNIX - System V\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_ARM)
+		printf("ARM\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_HPUX)
+		printf("UNIX - HP-UX\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_NETBSD)
+		printf("UNIX - NetBSD\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_LINUX)
+		printf("UNIX - Linux\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_IRIX)
+		printf("UNIX - IRIX\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_FREEBSD)
+		printf("UNIX - FreeBSD\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_SOLARIS)
+		printf("UNIX - Solaris\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_STANDALONE)
+		printf("Standalone App\n");
+	else if (elf_ident[EI_OSABI] == ELFOSABI_TRU64)
+		printf("UNIX - TRU64\n");
+	else
+		printf("<unknown: %x>\n", elf_ident[EI_OSABI]);
+
+}
+/**
+ * ELF_abiVersion - display the ELF file type
+ * @e_i: the ELF magic number
+ * @e_type: the ELF type
+ */
+void ELF_abiVersion(unsigned char *e_i)
+{
+	printf("  ABI Version:                       %d\n", e_i[EI_ABIVERSION]);
+}
+
+/**
+ * ELF_type - display the ELF file type
+ * @elf_ident: the ELF magic number
+ * @e_type: the ELF type
+ */
+void ELF_type(unsigned char *elf_ident, unsigned int elf_type)
+{
+	printf("  Type:                              ");
+
+	if (elf_ident[EI_DATA] == ELFDATA2MSB)
+		elf_type >>= 8;
+
+	if (elf_type == ET_NONE)
+		printf("NONE (None)\n");
+	else if (elf_type == ET_DYN)
+		printf("DYN (Shared object file)\n");
+	else if (elf_type == ET_CORE)
+		printf("CORE (Core file)\n");
+	else if (elf_type == ET_EXEC)
+		printf("EXEC (Executable file)\n");
+	else if (elf_type == ET_REL)
+		printf("REL (Relocatable file)\n");
+	else
+		printf("<unknown: %x>\n", elf_type);
+}
+
+/**
+ * ELF_entry - display the ELF file entry point adress
+ * @elf_ident: the ELF magic number
+ * @elf_entry: the ELF entry
+ */
+void ELF_entry(unsigned char *elf_ident, unsigned long int elf_entry)
+{
+	printf("  Entry point address:               ");
+
+	if (elf_ident[EI_DATA] == ELFDATA2MSB)
+	{
+		elf_entry = ((elf_entry << 8) & 0xFF00FF00) |
+			((elf_entry >> 8) & 0xFF00FF);
+		elf_entry = (elf_entry << 16) | (elf_entry >> 16);
+	}
+
+	if (elf_ident[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)elf_entry);
+
+	else if (elf_ident[EI_CLASS] == ELFCLASS64)
+		printf("%#lx\n", elf_entry);
+
+	else
+		printf("<unknown ELF class>\n");
 }

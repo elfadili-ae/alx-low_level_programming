@@ -36,7 +36,6 @@ int main(int argc, char *av[])
 		dprintf(2, "readelf: Error: failed reading file '%s'\n", av[1]);
 		exit(98);
 	}
-
 	ELF_check(ELF->e_ident, av[1]);
 	printf("ELF Header:\n");
 	ELF_magic(ELF->e_ident);

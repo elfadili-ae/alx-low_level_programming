@@ -2,7 +2,7 @@
 
 /**
  * sum_dlistint - sum data of doubly lniked list
- * @h: head of the linked list
+ * @head: head of the linked list
  * Return: sum of the data
  */
 int sum_dlistint(dlistint_t *head)

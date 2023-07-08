@@ -11,7 +11,7 @@ void shash_table_delete(shash_table_t *ht);
 
 
 /**
- * hash_table_create - create a hash table
+ * shash_table_create - create a hash table
  * @size: size of the table
  * Return: pointer to the table
  */
@@ -53,7 +53,7 @@ shash_node_t *create_node(const char *key, const char *value)
 {
 	shash_node_t *node;
 
-	node = (shash_node_t *) malloc(sizeof(hash_node_t));
+	node = (shash_node_t *) malloc(sizeof(shash_node_t));
 	if (node == NULL)
 		return (NULL);
 
@@ -79,9 +79,11 @@ shash_node_t *create_node(const char *key, const char *value)
 }
 
 /**
- *
- *
- *
+ * shash_table_set - set an element into HT
+ * @ht: hash table
+ * @key: key of the element
+ * @value: value of the element
+ * Return: 1 (success) | 0 (failed)
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
@@ -113,13 +115,14 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		return (0);
 	node->next = ht->array[idx];
 	ht->array[idx] = node;
+	sort_node(ht, node);
 	return (1);
 }
 
 /**
  * sort_node - place node in HT in a sorted order
  * @ht: hash table
- * @ndoe: node
+ * @node: node
  */
 void sort_node(shash_table_t *ht, shash_node_t *node)
 {
@@ -188,7 +191,7 @@ void shash_table_print(const shash_table_t *ht)
 	int flag = 0;
 	shash_node_t *tmp;
 
-	if (ht == NULL || ht->array == NULL || ht->shead == NULL)
+	if (ht == NULL || ht->shead == NULL)
 		return;
 
 	printf("{");
@@ -208,7 +211,7 @@ void shash_table_print(const shash_table_t *ht)
 }
 
 /**
- * shash_table_print - print the hash table in reverse
+ * shash_table_print_rev - print the hash table in reverse
  * @ht: hash table
  */
 void shash_table_print_rev(const shash_table_t *ht)
@@ -241,15 +244,15 @@ void shash_table_print_rev(const shash_table_t *ht)
  */
 void shash_table_delete(shash_table_t *ht)
 {
-        shash_node_t *tmp;
+	shash_node_t *tmp;
 
-        tmp = ht->shead;
-        while (tmp)
-        {
+	tmp = ht->shead;
+	while (tmp)
+	{
 		ht->shead = tmp->snext;
 		free(tmp);
 		tmp = ht->shead;
-        }
+	}
 	free(ht->array);
 	free(ht);
 }

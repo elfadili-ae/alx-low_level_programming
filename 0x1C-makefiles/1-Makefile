@@ -1,0 +1,14 @@
+#Define variables
+cc = gcc
+SRC = main.c school.c
+
+all: school
+
+school: main.o school.o
+	cc -o school main.o school.o
+
+%.o: %.c
+	cc -c $< -o $@
+
+clean:
+	rm -f *.o

@@ -1,14 +1,15 @@
 #Define variables
-cc = gcc
+CC = gcc
 SRC = main.c school.c
+OBJS = $(SRC:.c=.o)
 
 all: school
 
-school: main.o school.o
-	cc -o school main.o school.o
+school: $(OBJS)
+	$(CC) -o school $^
 
 %.o: %.c
-	cc -c $< -o $@
+	$(CC) -c $< -o $@
 
 clean:
-	rm -f *.o
+	rm -f $(OBJS)

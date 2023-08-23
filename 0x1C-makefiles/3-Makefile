@@ -1,0 +1,28 @@
+#Define variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+
+.PHONY: re
+
+re:
+	touch $(OBJ)
+
+all: $(NAME)
+
+$(NAME): re $(OBJ)
+	$(CC) -o $@ $^
+
+%.o: %.c
+	$(CC) -c $< -o $@
+
+clean:
+	$(RM) $(NAME) *~ *.swp
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean:
+	$(RM) *~ *.swp

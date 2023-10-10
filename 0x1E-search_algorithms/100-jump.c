@@ -3,7 +3,6 @@
 #include <math.h>
 #include "search_algos.h"
 
-void print_range(int *array, size_t lo, size_t hi);
 
 /**
  * jump_search - jump search algorithm
@@ -16,12 +15,13 @@ int jump_search(int *array, size_t size, int value)
 {
 	size_t i, j, low = 0, step;
 
+	if (array == NULL || size == 0)
+		return (-1);
+
 	step = (size_t)sqrt(size);
-	for (i = 0; i < size; i += step)
+	for (i = 0; i < size && array[i] < value; i += step)
 	{
 		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-		if (value < array[i + step])
-			break;
 		low = i;
 	}
 	printf("Value found between indexes ");
@@ -35,24 +35,4 @@ int jump_search(int *array, size_t size, int value)
 		j++;
 	}
 	return (-1);
-}
-
-/**
- * print_range - print array
- * @array: arary to print
- * @lo: starting index
- * @hi: end index
- */
-void print_range(int *array, size_t lo, size_t hi)
-{
-	size_t i;
-
-	if (lo > hi)
-		return;
-
-	printf("Searching in array: %d", array[lo]);
-	for (i = lo + 1; i < hi; i++)
-		printf(", %d", array[i]);
-
-	printf("\n");
 }

@@ -37,6 +37,9 @@ int binary_recursion(int *array, int value, size_t lo, size_t hi)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
+	if (array == NULL || size == 0)
+		return (-1);
+
 	return (binary_recursion(array, value, 0, size - 1));
 }
 

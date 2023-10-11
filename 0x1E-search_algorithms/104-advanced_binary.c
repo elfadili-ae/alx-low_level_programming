@@ -14,24 +14,18 @@ void print_array(int *array, size_t lo, size_t hi);
  */
 int binary_recursion(int *array, int value, size_t lo, size_t hi)
 {
-	int mid;
+	size_t mid;
 
-	while (lo < hi)
-	{
-		print_array(array, lo, hi);
-		mid = (lo + hi - 1) / 2;
-		if (array[mid] == value)
-		{
-			if ((mid - 1 >= 0) && (array[mid - 1] == value))
-				return (binary_recursion(array, value, lo, mid));
-			return (mid);
-		}
-		if (array[mid] > value)
-			hi = mid;
-		else
-			lo = mid + 1;
-	}
-	return (-1);
+	if (lo > hi)
+		return (-1);
+
+	print_array(array, lo, hi + 1);
+	mid = (lo + hi) / 2;
+	if (array[mid] == value && (mid == lo || array[mid - 1] != value))
+		return (mid);
+	if (array[mid] >= value)
+		return (binary_recursion(array, value, lo, mid));
+	return (binary_recursion(array, value, mid + 1, hi));
 }
 
 /**
@@ -43,7 +37,7 @@ int binary_recursion(int *array, int value, size_t lo, size_t hi)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	return (binary_recursion(array, value, 0, size));
+	return (binary_recursion(array, value, 0, size - 1));
 }
 
 /**
@@ -55,9 +49,6 @@ int advanced_binary(int *array, size_t size, int value)
 void print_array(int *array, size_t lo, size_t hi)
 {
 	size_t i;
-
-	if (lo > hi)
-		return;
 
 	printf("Searching in array: %d", array[lo]);
 	for (i = lo + 1; i < hi; i++)
